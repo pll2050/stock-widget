@@ -6,9 +6,51 @@
   "main": "src/main/main.js",
   "scripts": {
     "start": "node scripts/start-electron.js",
-    "check": "node --check scripts/start-electron.js && node --check src/main/main.js && node --check src/main/settings-store.js && node --check src/main/secret-storage.js && node --check src/main/stock-provider.js && node --check src/preload/preload.js && node --check src/renderer/app.js"
+    "check": "node --check scripts/start-electron.js && node --check src/main/main.js && node --check src/main/settings-store.js && node --check src/main/secret-storage.js && node --check src/main/stock-provider.js && node --check src/preload/preload.js && node --check src/renderer/app.js",
+    "dist": "electron-builder --win nsis --x64 --publish never",
+    "release": "electron-builder --win nsis --x64 --publish always"
   },
   "devDependencies": {
-    "electron": "^43.4.0"
+    "electron": "^43.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "productName": "스탁 위젯",
+  "author": "pll2050",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pll2050/stock-widget.git"
+  },
+  "build": {
+    "appId": "com.pll2050.stockwidget",
+    "productName": "스탁 위젯",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "scripts/**/*",
+      "package.json",
+      "README.md"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "${productName}-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "스탁 위젯"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "pll2050",
+        "repo": "stock-widget"
+      }
+    ]
   }
 }

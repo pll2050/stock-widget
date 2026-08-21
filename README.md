@@ -9,7 +9,7 @@ npm install
 npm start
 ```
 
-## 현재 구현 범위
+\n## 설치 파일 빌드와 GitHub 배포\n\n로컬에서 Windows 설치 파일을 만들려면 다음 명령을 실행합니다.\n\n`ash\nnpm run dist\n`\n\n생성물은 dist/ 디렉터리에 만들어지며, Git에는 포함하지 않습니다.\n\nGitHub Release 배포는 태그 기반으로 동작합니다. 0.1.0처럼 버전 태그를 푸시하면 GitHub Actions가 Windows NSIS 설치 파일을 빌드하고 해당 태그의 Release에 업로드합니다.\n\n`ash\ngit tag v0.1.0\ngit push origin v0.1.0\n`\n\n릴리스 워크플로는 .github/workflows/release.yml에 정의되어 있으며, GitHub Actions의 기본 GITHUB_TOKEN으로 Release 업로드를 수행합니다. 현재 저장소가 private이면 Release 다운로드도 저장소 접근 권한이 있는 사용자에게만 열립니다.\n## 현재 구현 범위
 
 - 항상 위에 표시되는 프레임 없는 위젯 창
 - 시스템 트레이 메뉴
