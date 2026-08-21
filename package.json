@@ -1,0 +1,14 @@
+{
+  "name": "stock-widget",
+  "version": "0.1.0",
+  "description": "Always-on-top Electron stock monitoring widget.",
+  "private": true,
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "node scripts/start-electron.js",
+    "check": "node --check scripts/start-electron.js && node --check src/main/main.js && node --check src/main/settings-store.js && node --check src/main/secret-storage.js && node --check src/main/stock-provider.js && node --check src/preload/preload.js && node --check src/renderer/app.js"
+  },
+  "devDependencies": {
+    "electron": "^43.4.0"
+  }
+}
