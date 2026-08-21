@@ -28,8 +28,11 @@ jobs:
       - name: Check syntax
         run: npm run check
 
-      - name: Build and publish installer
-        run: npm run release
+      - name: Build installer
+        run: npm run dist
+
+      - name: Publish GitHub Release
+        shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CSC_IDENTITY_AUTO_DISCOVERY: false
+        run: gh release create $env:GITHUB_REF_NAME dist/*.exe dist/*.exe.blockmap dist/latest.yml --title $env:GITHUB_REF_NAME --notes "Windows installer release."
