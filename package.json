@@ -23,6 +23,7 @@
   "build": {
     "appId": "com.pll2050.stockwidget",
     "productName": "스탁 위젯",
+    "executableName": "stock-widget",
     "asar": true,
     "directories": {
       "output": "dist"
@@ -44,7 +45,7 @@
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "스탁 위젯"
+      "shortcutName": "stock-widget"
     },
     "publish": [
       {
