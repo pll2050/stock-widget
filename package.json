@@ -35,7 +35,7 @@
     ],
     "win": {
       "target": "nsis",
-      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "artifactName": "stock-widget-setup-${version}.${ext}",
       "signAndEditExecutable": false
     },
     "nsis": {
