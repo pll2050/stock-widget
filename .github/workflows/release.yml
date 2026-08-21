@@ -30,6 +30,8 @@ jobs:
 
       - name: Build installer
         run: npm run dist
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Publish GitHub Release
         shell: pwsh
